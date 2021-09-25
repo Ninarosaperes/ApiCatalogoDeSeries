@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiCatalogoEmmyflix</name>
+    </assembly>
+    <members>
+        <member name="M:ApiCatalogoEmmyflix.Controllers.V1.SeriesController.Obter(System.Int32,System.Int32)">
+            <summary>
+            Buscar todas as séries por página.
+            </summary>
+            <remarks>
+            Não é possível retornar as séries sem paginação.
+            </remarks>
+            <param name="pagina">Indica qual página está sendo consultada. Mínimo 1.</param>
+            <param name="quantidade">Indica a quantidade de registros por página. Mínimo 1 e máximo 50.</param>
+            <response code="200">Retorna a lista de series.</response>
+            <response code="204">Caso não haja séries.</response>   
+        </member>
+        <member name="M:ApiCatalogoEmmyflix.Controllers.V1.SeriesController.Obter(System.Guid)">
+            <summary>
+            Buscar uma série pela sua Id
+            </summary>
+            <param name="idSerie">Id da serie buscada.</param>
+            <response code="200">Retorna a série filtrada.</response>
+            <response code="204">Caso não haja série com este id.</response>   
+        </member>
+        <member name="M:ApiCatalogoEmmyflix.Controllers.V1.SeriesController.InserirSerie(ApiCatalogoEmmyflix.InputModel.SerieInputModel)">
+            <summary>
+            Inserir uma série no catálogo.
+            </summary>
+            <param name="serieInputModel">Dados da série a ser inserida.</param>
+            <response code="200">Caso a série seja inserida com sucesso.</response>
+            <response code="422">Caso já exista uma série com mesmo nome para o mesmo gênero.</response>   
+        </member>
+        <member name="M:ApiCatalogoEmmyflix.Controllers.V1.SeriesController.AtualizarSerie(System.Guid,ApiCatalogoEmmyflix.InputModel.SerieInputModel)">
+            <summary>
+            Atualizar uma série no catálogo.
+            </summary>
+            /// <param name="idSerie">Id da série a ser atualizada.</param>
+            <param name="serieInputModel">Novos dados para atualizar a série indicada.</param>
+            <response code="200">Caso a série seja atualizada com sucesso.</response>
+            <response code="404">Caso não exista uma série com este Id.</response>   
+        </member>
+        <member name="M:ApiCatalogoEmmyflix.Controllers.V1.SeriesController.AtualizarSerie(System.Guid,System.String)">
+            <summary>
+            Atualizar a premiação de uma série.
+            </summary>
+            /// <param name="idSerie">Id da série a ser atualizada.</param>
+            <param name="premio">Nova premiação da série.</param>
+            <response code="200">Caso a premiação seja atualizado com sucesso.</response>
+            <response code="404">Caso não exista uma série com este Id.</response>   
+        </member>
+        <member name="M:ApiCatalogoEmmyflix.Controllers.V1.SeriesController.AtualizarSerie(System.Guid,System.Int32)">
+            <summary>
+            Atualizar o número de temporadas de uma série.
+            </summary>
+            /// <param name="idSerie">Id da série a ser atualizada.</param>
+            <param name="numeroTemporadas">Novo número de temporadas da série.</param>
+            <response code="200">Caso o numero de temporadas seja atualizado com sucesso.</response>
+            <response code="404">Caso não exista uma série com este Id.</response>   
+        </member>
+        <member name="M:ApiCatalogoEmmyflix.Controllers.V1.SeriesController.ApagarSerie(System.Guid)">
+            <summary>
+            Excluir uma série.
+            </summary>
+            /// <param name="idSerie">Id da serie a ser excluída.</param>
+            <response code="200">Caso a série seja excluída com sucesso.</response>
+            <response code="404">Caso não exista uma série com este Id.</response>   
+        </member>
+    </members>
+</doc>
